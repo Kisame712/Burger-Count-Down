@@ -2138,7 +2138,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5907277984049481653}
-  - component: {fileID: 3747140205892824731}
   - component: {fileID: 8709571905523061185}
   m_Layer: 0
   m_Name: Player
@@ -2169,28 +2168,6 @@ Transform:
   - {fileID: 992698387539263036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &3747140205892824731
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7269525023327438022}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 2220d5b5b27b2e546b799e4b75a0d6b4, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8709571905523061185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2203,6 +2180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e861b4bf785287d409e6d727fd5d9cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  moveSpeed: 5
+  rotateSpeed: 300
 --- !u!1 &7287586220628865591
 GameObject:
   m_ObjectHideFlags: 0
