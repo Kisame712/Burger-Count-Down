@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 63a31b0a4d198d145b87c5068cf039b1
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 329847
+  packageName: Burger shop
+  packageVersion: 1.1
+  assetPath: Assets/Burger_shop/Prefabs/building_parts/T_main_entrance.prefab
+  uploadId: 837390

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 845a71f4cfd3e3e42bf0fabf19844ddb
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 329847
+  packageName: Burger shop
+  packageVersion: 1.1
+  assetPath: Assets/Burger_shop/Materials/T_well.mat
+  uploadId: 837390

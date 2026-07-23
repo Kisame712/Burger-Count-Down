@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 56c44f88b2a7b44429ab3c7ee21ef2ff
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 329847
+  packageName: Burger shop
+  packageVersion: 1.1
+  assetPath: Assets/Burger_shop/Prefabs/kitchen_equipment/T_refrigerator.prefab
+  uploadId: 837390
