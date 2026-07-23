@@ -2139,6 +2139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5907277984049481653}
   - component: {fileID: 8709571905523061185}
+  - component: {fileID: 6671495840274944681}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2181,7 +2182,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   moveSpeed: 5
-  rotateSpeed: 300
+  rotateSpeed: 2
+  mouseSensitivity: 0.1
+  upDownRange: 80
+--- !u!143 &6671495840274944681
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7269525023327438022}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.6
+  m_Radius: 0.28
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.028
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &7287586220628865591
 GameObject:
   m_ObjectHideFlags: 0
