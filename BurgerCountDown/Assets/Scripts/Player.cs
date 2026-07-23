@@ -4,11 +4,16 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
+    [SerializeField] private float mouseSensitivity;
+    [SerializeField] private float upDownRange;
+
+    private CharacterController playerController;
+
     private PlayerInputActions playerInputActions;
 
     private Vector2 moveVector;
 
-    private Vector2 rotateVector;
+    private Vector3 currentMovement;
 
     private void Start()
     {
@@ -16,30 +21,59 @@ public class Player : MonoBehaviour
 
         playerInputActions.Enable();
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        playerController = GetComponent<CharacterController>();
+    }
+
+    private Vector3 GetWorldDirection()
+    {
+        moveVector = playerInputActions.Player.Move.ReadValue<Vector2>();
+        Vector3 inputDirection = new Vector3(moveVector.x, 0f, moveVector.y);
+        Vector3 worldDirection = transform.TransformDirection(inputDirection);
+        return worldDirection;
     }
 
     private void Update()
     {
         MovePlayer();
         RotatePlayer();
+
     }
 
     private void MovePlayer()
     {
-        moveVector = playerInputActions.Player.Move.ReadValue<Vector2>();
+        Vector3 worldDirection = GetWorldDirection();
+        currentMovement.x = worldDirection.x * moveSpeed;
+        currentMovement.z = worldDirection.z * moveSpeed;
+        ApplyGravity();
 
-        Vector3 moveDir = new Vector3(moveVector.x, 0f, moveVector.y).normalized * Time.deltaTime;
+        playerController.Move(currentMovement * Time.deltaTime);
+ 
+    }
 
-        transform.position += moveDir * moveSpeed;
+    private void ApplyGravity()
+    {
+        currentMovement.y += Physics.gravity.y * Time.deltaTime;
     }
 
     private void RotatePlayer()
     {
-        rotateVector = playerInputActions.Player.Rotate.ReadValue<Vector2>();
+        Vector2 rotateVector = playerInputActions.Player.Rotate.ReadValue<Vector2>();
 
-        transform.forward = Vector3.Slerp(transform.forward, rotateVector * rotateSpeed, Time.deltaTime);
+        float rotationAmountX = rotateVector.x * mouseSensitivity;
+        float rotationAmountY = rotateVector.y * mouseSensitivity;
 
+        ApplyHorizontalRotation(rotationAmountX);
+        
     }
+
+    private void ApplyHorizontalRotation(float rotateAmount)
+    {
+        transform.Rotate(0, rotateAmount , 0);
+    }
+
 
     private void OnDestroy()
     {
