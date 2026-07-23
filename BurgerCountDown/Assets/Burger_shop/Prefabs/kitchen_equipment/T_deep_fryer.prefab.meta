@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 837d27dfe9cd78d4ab5f15e6e098a1fd
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 329847
+  packageName: Burger shop
+  packageVersion: 1.1
+  assetPath: Assets/Burger_shop/Prefabs/kitchen_equipment/T_deep_fryer.prefab
+  uploadId: 837390

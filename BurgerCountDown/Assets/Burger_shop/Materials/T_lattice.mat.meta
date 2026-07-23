@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 694992048934e4d4096b214754f2673c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 329847
+  packageName: Burger shop
+  packageVersion: 1.1
+  assetPath: Assets/Burger_shop/Materials/T_lattice.mat
+  uploadId: 837390

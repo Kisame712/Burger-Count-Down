@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b72dba085389f5a47a48ea0f776911e7
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 329847
+  packageName: Burger shop
+  packageVersion: 1.1
+  assetPath: Assets/Burger_shop/Prefabs/food/T_undercooked_bun1.prefab
+  uploadId: 837390

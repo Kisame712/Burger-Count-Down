@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: d40d8fa2c0063884fa9682f6b4a15d9a
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 329847
+  packageName: Burger shop
+  packageVersion: 1.1
+  assetPath: Assets/Burger_shop/Prefabs/props/T_payment_terminal1.prefab
+  uploadId: 837390

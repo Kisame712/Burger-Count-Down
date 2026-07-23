@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5d1fab3670e704749b1ad33d23c1782d
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 329847
+  packageName: Burger shop
+  packageVersion: 1.1
+  assetPath: Assets/Burger_shop/Prefabs/props/T_cash_register_fence.prefab
+  uploadId: 837390

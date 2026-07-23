@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 748cce0ce34083b45ba819e2bf7b9665
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 329847
+  packageName: Burger shop
+  packageVersion: 1.1
+  assetPath: Assets/Burger_shop/Materials/T_floor1.mat
+  uploadId: 837390
