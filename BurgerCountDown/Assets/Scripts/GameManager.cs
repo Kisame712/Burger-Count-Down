@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Animator bossAnimator;
@@ -9,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     private readonly int writhingInPainHash = Animator.StringToHash("Writhing In Pain");
 
-    
+    public static GameManager Instance { private set; get; }
 
     private enum Task
     {
@@ -22,6 +23,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if(Instance != null)
+        {
+            Debug.LogError("There is more than one instane of GameManager - " + transform);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+
         task = Task.Task_One;
     }
 
@@ -31,17 +40,21 @@ public class GameManager : MonoBehaviour
         UpdateTaskCounter();
     }
 
-    private void Update()
+    public void TaskComplete()
     {
         switch (task)
         {
             case Task.Task_One:
+                task = Task.Task_Two;
+                UpdateTaskCounter();
                 break;
             case Task.Task_Two:
                 break;
             case Task.Task_Three:
+                SceneManager.LoadScene("Win");
                 break;
         }
+
     }
 
     private void UpdateTaskCounter()

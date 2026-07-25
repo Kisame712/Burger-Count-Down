@@ -2262,6 +2262,11 @@ MonoBehaviour:
   mouseSensitivity: 0.05
   upDownRange: 80
   playerCamera: {fileID: 5827672704844381000}
+  interactRadius: 5
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  crosshair: {fileID: 2800000, guid: d665512816d4ea944bc7ec72a6b083fb, type: 3}
 --- !u!143 &6671495840274944681
 CharacterController:
   m_ObjectHideFlags: 0

@@ -1,5 +1,7 @@
-using UnityEngine;
 using Unity.Cinemachine;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
@@ -8,6 +10,10 @@ public class Player : MonoBehaviour
     [SerializeField] private float upDownRange;
 
     [SerializeField] private CinemachineCamera playerCamera;
+
+    [SerializeField] private float interactRadius;
+    [SerializeField] private LayerMask interactableLayer;
+
 
     private CharacterController playerController;
 
@@ -29,6 +35,25 @@ public class Player : MonoBehaviour
         Cursor.visible = false;
 
         playerController = GetComponent<CharacterController>();
+
+        playerInputActions.Player.Interact.performed += PlayerInputActions_Interact;
+    }
+
+    private void PlayerInputActions_Interact(InputAction.CallbackContext obj)
+    {
+
+        RaycastHit raycastHit;
+        Vector3 mousePosition = Mouse.current.position.ReadValue();
+        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+
+        if(Physics.Raycast(ray, out raycastHit, interactRadius, interactableLayer))
+        {
+            if(raycastHit.transform.TryGetComponent<TrashObject>(out TrashObject trashObject))
+            {
+                Destroy(trashObject.gameObject);
+            }
+        }
+        
     }
 
     private Vector3 GetWorldDirection()
