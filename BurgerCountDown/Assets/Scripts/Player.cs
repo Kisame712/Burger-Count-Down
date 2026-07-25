@@ -1,11 +1,13 @@
 using UnityEngine;
-
+using Unity.Cinemachine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float mouseSensitivity;
     [SerializeField] private float upDownRange;
+
+    [SerializeField] private CinemachineCamera playerCamera;
 
     private CharacterController playerController;
 
@@ -14,6 +16,8 @@ public class Player : MonoBehaviour
     private Vector2 moveVector;
 
     private Vector3 currentMovement;
+
+    private float verticalRotation;
 
     private void Start()
     {
@@ -66,6 +70,7 @@ public class Player : MonoBehaviour
         float rotationAmountY = rotateVector.y * mouseSensitivity;
 
         ApplyHorizontalRotation(rotationAmountX);
+        ApplyVerticalRotation(rotationAmountY);
         
     }
 
@@ -74,6 +79,12 @@ public class Player : MonoBehaviour
         transform.Rotate(0, rotateAmount , 0);
     }
 
+    private void ApplyVerticalRotation(float rotateAmount)
+    {
+        verticalRotation = Mathf.Clamp(verticalRotation - rotateAmount, -upDownRange, upDownRange);
+        playerCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+
+    }
 
     private void OnDestroy()
     {
