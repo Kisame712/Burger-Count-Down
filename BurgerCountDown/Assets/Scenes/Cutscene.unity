@@ -37327,6 +37327,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6359361165816662442, guid: 474a4bb67ba7ed944b3039d8ed0301ff, type: 3}
   m_PrefabInstance: {fileID: 988717651}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &988717653 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1054072789131547600, guid: 474a4bb67ba7ed944b3039d8ed0301ff, type: 3}
+  m_PrefabInstance: {fileID: 988717651}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &992065251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62510,6 +62515,8 @@ MonoBehaviour:
   textArea: {fileID: 730271231}
   playerCamera: {fileID: 323982204}
   bossCamera: {fileID: 1453272996}
+  playerAnimator: {fileID: 8737736801407675811}
+  bossAnimator: {fileID: 988717653}
 --- !u!1001 &1669702544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75975,7 +75982,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f13a4345a7129594ba4eba14cc33cd2b, type: 3}
+  m_Resource: {fileID: 8300000, guid: 998bc96d7232be34eb8f3be8a384d29a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

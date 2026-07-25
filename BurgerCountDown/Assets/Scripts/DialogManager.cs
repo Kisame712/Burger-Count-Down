@@ -15,8 +15,12 @@ public class DialogManager : MonoBehaviour
     [SerializeField] private GameObject playerCamera;
     [SerializeField] private GameObject bossCamera;
 
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private Animator bossAnimator;
 
-    
+    private readonly int talkingHash = Animator.StringToHash("Talking");
+    private readonly int kneelingHash = Animator.StringToHash("Kneeling");
+
     private void SwitchCameras(GameObject camera1, GameObject camera2)
     {
         camera1.SetActive(false);
@@ -47,10 +51,12 @@ public class DialogManager : MonoBehaviour
             if(i % 2 == 0)
             {
                 SwitchCameras(playerCamera, bossCamera);
+                ChangeBossAnimations(i);
             }
             else
             {
                 SwitchCameras(bossCamera, playerCamera);
+                ChangePlayerAnimations();
             }
             backgroundImage.SetActive(false);
             yield return new WaitForSeconds(timeToSwitchCameras);
@@ -64,5 +70,22 @@ public class DialogManager : MonoBehaviour
     public void LoadGameScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private void ChangePlayerAnimations()
+    {
+        playerAnimator.Play(talkingHash);   
+    }
+
+    private void ChangeBossAnimations(int index)
+    {
+        if(index < 4)
+        {
+            bossAnimator.Play(talkingHash);
+        }
+        else
+        {
+            bossAnimator.Play(kneelingHash);
+        }
     }
 }
