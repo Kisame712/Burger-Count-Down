@@ -1,7 +1,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
+
 public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float interactRadius;
     [SerializeField] private LayerMask interactableLayer;
+    [SerializeField] private LayerMask tableLayer;
+
+    [SerializeField] private Transform sauceBottle;
 
 
     private CharacterController playerController;
@@ -46,12 +49,37 @@ public class Player : MonoBehaviour
         Vector3 mousePosition = Mouse.current.position.ReadValue();
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
 
-        if(Physics.Raycast(ray, out raycastHit, interactRadius, interactableLayer))
+        if(GameManager.Instance.GetCurrentTask() == 0)
         {
-            if(raycastHit.transform.TryGetComponent<TrashObject>(out TrashObject trashObject))
+            if(Physics.Raycast(ray, out raycastHit, interactRadius, interactableLayer))
             {
-                Destroy(trashObject.gameObject);
+                if(raycastHit.transform.TryGetComponent<TrashObject>(out TrashObject trashObject))
+                {
+                    Destroy(trashObject.gameObject);
+                }
             }
+        }
+
+        else if(GameManager.Instance.GetCurrentTask() == 1)
+        {
+            if (Physics.Raycast(ray, out raycastHit, interactRadius, tableLayer))
+            {
+                if(raycastHit.transform.TryGetComponent<SauceSpawnPoint>(out SauceSpawnPoint sauceSpawnPoint))
+                {
+                    if (sauceSpawnPoint.TableHasSauce())
+                    {
+                        return;
+                    }
+                    sauceSpawnPoint.SetHasSauce(true);
+                    Instantiate(sauceBottle, sauceSpawnPoint.transform);
+                    sauceSpawnPoint.BottlePlaced();
+                }
+            }
+        }
+
+        else
+        {
+
         }
         
     }
