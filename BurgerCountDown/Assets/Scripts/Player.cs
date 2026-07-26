@@ -1,6 +1,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Evo.UI;
 
 public class Player : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask tableLayer;
 
     [SerializeField] private Transform sauceBottle;
+
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private Button resumeButton;
+    [SerializeField] private Slider mouseSentivitySlider;
 
 
     private CharacterController playerController;
@@ -40,6 +45,24 @@ public class Player : MonoBehaviour
         playerController = GetComponent<CharacterController>();
 
         playerInputActions.Player.Interact.performed += PlayerInputActions_Interact;
+
+        playerInputActions.Player.Pause.performed += PlayerInputActions_Pause;
+
+        resumeButton.onClick.AddListener(() =>
+        {
+            Time.timeScale = 1f;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            pauseMenu.SetActive(false);
+        });
+    }
+
+    private void PlayerInputActions_Pause(InputAction.CallbackContext obj)
+    {
+        Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        pauseMenu.SetActive(true);
     }
 
     private void PlayerInputActions_Interact(InputAction.CallbackContext obj)
@@ -79,6 +102,13 @@ public class Player : MonoBehaviour
 
         else
         {
+            if (Physics.Raycast(ray, out raycastHit, interactRadius, interactableLayer))
+            {
+                if(raycastHit.transform.TryGetComponent<TrayObject>(out TrayObject trayObject))
+                {
+                    Destroy(trayObject.gameObject);
+                }
+            }
 
         }
         
@@ -142,5 +172,11 @@ public class Player : MonoBehaviour
     private void OnDestroy()
     {
         playerInputActions.Dispose();
+        Time.timeScale = 1;
+    }
+
+    public void ChangeMouseSensitivity()
+    {
+        mouseSensitivity = mouseSentivitySlider.value;
     }
 }
