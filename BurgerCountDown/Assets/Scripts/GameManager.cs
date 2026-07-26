@@ -49,12 +49,19 @@ public class GameManager : MonoBehaviour
                 UpdateTaskCounter();
                 break;
             case Task.Task_Two:
+                task = Task.Task_Three;
+                UpdateTaskCounter();
                 break;
             case Task.Task_Three:
                 SceneManager.LoadScene("Win");
                 break;
         }
 
+    }
+
+    public int GetCurrentTask()
+    {
+        return (int)task;
     }
 
     private void UpdateTaskCounter()

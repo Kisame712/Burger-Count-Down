@@ -2257,16 +2257,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e861b4bf785287d409e6d727fd5d9cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  moveSpeed: 5
+  moveSpeed: 2.5
   rotateSpeed: 2
   mouseSensitivity: 0.05
   upDownRange: 80
   playerCamera: {fileID: 5827672704844381000}
-  interactRadius: 5
+  interactRadius: 2
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
-  crosshair: {fileID: 2800000, guid: d665512816d4ea944bc7ec72a6b083fb, type: 3}
+  tableLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  sauceBottle: {fileID: 5812696066981625565, guid: e5b94cdda7780d244af1575c1da1f8f6, type: 3}
 --- !u!143 &6671495840274944681
 CharacterController:
   m_ObjectHideFlags: 0

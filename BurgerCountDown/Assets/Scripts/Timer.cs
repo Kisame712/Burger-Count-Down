@@ -23,8 +23,16 @@ public class Timer : MonoBehaviour
         minutes = Mathf.RoundToInt(timer) / 60;
 
         seconds = Mathf.RoundToInt(timer) % 60;
+        
+        if(seconds < 10)
+        {
+            timerText.text = $"{minutes} : 0{seconds}";
+        }
+        else
+        {
+            timerText.text = $"{minutes} : {seconds}";
+        }
 
-        timerText.text = $"{minutes} : {seconds}";
 
         if(timer == 0)
         {

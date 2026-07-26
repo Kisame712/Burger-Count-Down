@@ -4,6 +4,7 @@ using TMPro;
 public class TrashObjectsParent : MonoBehaviour
 {
     [SerializeField] private TMP_Text trashObjectsText;
+    [SerializeField] private TMP_Text sauceObjectsText;
     private int children;
 
     private int pickedTrash;
@@ -28,6 +29,7 @@ public class TrashObjectsParent : MonoBehaviour
         {
             trashObjectsText.gameObject.SetActive(false);
             GameManager.Instance.TaskComplete();
+            sauceObjectsText.gameObject.SetActive(true);
         }
     }
 
