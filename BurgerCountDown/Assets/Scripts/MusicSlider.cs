@@ -8,7 +8,7 @@ public class MusicSlider : MonoBehaviour
     {
         if (!PlayerPrefs.HasKey("musicVolume"))
         {
-            PlayerPrefs.SetFloat("musicVolume", 0.5f);
+            PlayerPrefs.SetFloat("musicVolume", 0.3f);
             Load();
         }
         else

@@ -9,6 +9,12 @@ public class FinalSceneManager : MonoBehaviour
     [SerializeField] private Button restartButton;
     [SerializeField] private Button exitButton;
 
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     private void Start()
     {
         restartButton.onClick.AddListener(() =>
